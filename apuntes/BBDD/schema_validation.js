@@ -1,4 +1,4 @@
-use Amenities;
+//use amenities;
 // debemos crear la base de datos y no depender de lo de arriba
 db.createCollection("packs", {
     validator: {
@@ -6,8 +6,9 @@ db.createCollection("packs", {
             bsonType: "object",
             required: ["PricePack","NamePack","ContentPack","HasCupon","HasParking"],
             properties: {
+                "_id":{},
                 "PricePack":{
-                    bsonType: "integer",
+                    bsonType: "int",
                     description: "The price of the Pack"
                     //debe ser 0 (Free) o x (buy)
                 },
@@ -15,11 +16,11 @@ db.createCollection("packs", {
                     bsonType: "string",
                     description: "The name of the Pack"
                 },
-                "ContenPack":{
+                "ContentPack":{
                     bsonType: "array",
                     items: {
                         bsonType:"object",
-                        required: ["name","description"],
+                        required: ["name"],
                         properties:{
                             name:{
                                 bsonType:"string",
@@ -31,8 +32,35 @@ db.createCollection("packs", {
                             }
                         }
                     }
+                },
+                "HasCupon":{
+                    type:"boolean",
+                    description:"Para saber si tiene o no descuento el pack"
+                },
+                "HasParking":{
+                    bsonType:"bool",
+                    description:"Para saber si el pack es solo para los que tienen parking"
                 }
             }
         }
     }
 });
+
+db.packs.insertOne(
+    {
+        PricePack:NumberInt(0),
+        NamePack:"Pack de Prueba",
+        ContentPack:[
+            {
+                name:"Chuches",
+                description:"esto es una bolsa de chuches"
+            },
+            {
+                name:"golosinas",
+                description:"esto e suna bolsa de golosinas"
+            }
+        ],
+        HasCupon:false,
+        HasParking:true
+    }
+)
