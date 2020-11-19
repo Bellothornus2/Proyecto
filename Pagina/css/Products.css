@@ -1,0 +1,66 @@
+div#Lista{
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 20px;
+
+}
+body{
+    font-family: DejaVu Sans Mono, monospace;
+}
+body{
+    background-image: url("FONDO.jpg"); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+  }
+ul#cabecera li, ul#footer li{
+    display: inline;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+div#Lista{
+background-color: rgba(163, 103, 103, 0.918);
+
+}
+a#Pack{
+    padding: 15px 15px 20px 15px;
+    border-left: 5px solid red;
+    margin-bottom: 30px;
+    line-height: 26px; 
+
+}
+
+ul#cabecera li a, ul#footer li a, ul#cabecera, ul#footer{
+    color: white;
+    text-decoration: none;
+}
+h1#cuerpo_texto{
+    text-align: center
+    
+}
+header, footer{
+    text-align: center;
+    border-style: groove;
+}
+header{
+    left: 20px;
+    width: 95%;
+    top: 10px;
+    width: 95%;
+    border-radius: 25px;
+    background-color: rgb(89, 201, 253);
+}
+header + *{
+    padding-top: 80px;
+}
+footer{
+    position: relative;
+    overflow: hidden;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(75, 75, 75);
+}

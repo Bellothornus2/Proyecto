@@ -1,0 +1,48 @@
+body{
+    font-family: DejaVu Sans Mono, monospace;
+}
+body{
+    background-image: url("FONDO.jpg"); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+  }
+ul#cabecera li, ul#footer li{
+    display: inline;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+ul#cabecera li a, ul#footer li a, ul#cabecera, ul#footer{
+    color: white;
+    text-decoration: none;
+}
+h1#cuerpo_texto{
+    text-align: center
+    
+
+}
+header, footer{
+    text-align: center;
+    border-style: groove;
+}
+header{
+    position: fixed;
+    left: 20px;
+    width: 95%;
+    top: 10px;
+    width: 95%;
+    border-radius: 25px;
+    background-color: rgb(89, 201, 253);
+}
+header + *{
+    padding-top: 80px;
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(75, 75, 75);
+}
