@@ -47,3 +47,4 @@ page = gethtml(url)
 print_all_links(page)
 print(list_links)
 #Hola
+#Adios
