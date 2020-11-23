@@ -1,3 +1,15 @@
+import urllib.request
+def gethtml(url):
+    request = urllib.request.urlopen('http://localhost:8000/Menus')
+    #si tiene el charset puesto:
+    #html = request.read().decode(request.headers.get_content_charset())
+    #si no:
+    html = request.read().decode('utf-8')
+    return html
+
+url = "http://localhost:8000/"
+html = gethtml(url)
+
 def get_next_link(page):
     #encuentra el primer enlace desde la posición 0 
     #del parámetro "page"
@@ -15,8 +27,9 @@ def get_next_link(page):
         url = page[start_quote + 1:end_quote]
     return url, end_quote
 
+list_links = []
+
 def print_all_links(page):
-    list_links = []
     while True:
         url, endpos = get_next_link(page)
         if url:
@@ -24,3 +37,5 @@ def print_all_links(page):
             page = page[endpos:]
         else:
             break
+
+print_all_links(page)
