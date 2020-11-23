@@ -1,9 +1,9 @@
 import urllib.request
 list_links = []
-url = "http://localhost:8000/html/index.html"
+url = "index.html"
 
-def gethtml(url):
-    request = urllib.request.urlopen(url)
+def gethtml(url,webpage="http://localhost:8000/html/"):
+    request = urllib.request.urlopen(webpage + url)
     #si tiene el charset puesto:
     #html = request.read().decode(request.headers.get_content_charset())
     #si no:
@@ -33,7 +33,7 @@ def print_all_links(page):
     while True:
         url, endpos = get_next_link(page)
         if url:
-            if url == '#':
+            if url == '#' or url in list_links:
                 page = page[endpos+1:]
                 continue
             else:
@@ -42,9 +42,17 @@ def print_all_links(page):
         else:
             break
 
+def get_all_pages(list_links):
+    for url in list_links:
+        page = gethtml(url)
+        print_all_links(page)
+        list_links = list(set(list_links))
 
 page = gethtml(url)
 print_all_links(page)
 print(list_links)
-#Hola
-#Adios
+
+
+get_all_pages(list_links)
+print(list_links)
+
