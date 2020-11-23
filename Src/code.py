@@ -88,3 +88,5 @@ print(list_links)
 #Then here we take all the links from all the urls from the entire webpage recursively.
 get_all_pages(list_links)
 print(list_links)
+
+#odio esto!
