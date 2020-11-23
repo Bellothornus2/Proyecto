@@ -2,13 +2,14 @@ div#Lista{
     display: inline-block;
     border: 1px solid #000;
     padding: 20px;
+    width: 97%;
 
 }
 body{
     font-family: DejaVu Sans Mono, monospace;
 }
 body{
-    background-image: url("FONDO.jpg"); /* The image used */
+    background-image: url("fondo.jpg"); /* The image used */
     background-color: #cccccc; /* Used if the image is unavailable */
     height: 500px; /* You must set a specified height */
     background-position: center; /* Center the image */
@@ -59,6 +60,19 @@ header + *{
 footer{
     position: relative;
     overflow: hidden;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(75, 75, 75);
+}
+ul#menu_parametros li {
+    display: inline;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    text-align: center;
+}
+footer#fpartners{
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
