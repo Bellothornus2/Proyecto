@@ -8,7 +8,7 @@ body{
     font-family: DejaVu Sans Mono, monospace;
 }
 body{
-    background-image: url("FONDO.jpg"); /* The image used */
+    background-image: url("fondo.jpg"); /* The image used */
     background-color: #cccccc; /* Used if the image is unavailable */
     height: 500px; /* You must set a specified height */
     background-position: center; /* Center the image */
@@ -63,4 +63,10 @@ footer{
     bottom: 0;
     width: 100%;
     background-color: rgb(75, 75, 75);
+}
+ul#menu_parametros li {
+    display: inline;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    text-align: center;
 }
