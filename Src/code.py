@@ -1,14 +1,15 @@
 import urllib.request
+list_links = []
+url = "http://localhost:8000/html/index.html"
+
 def gethtml(url):
-    request = urllib.request.urlopen('http://localhost:8000/Menus')
+    request = urllib.request.urlopen(url)
     #si tiene el charset puesto:
     #html = request.read().decode(request.headers.get_content_charset())
     #si no:
     html = request.read().decode('utf-8')
     return html
 
-url = "http://localhost:8000/"
-html = gethtml(url)
 
 def get_next_link(page):
     #encuentra el primer enlace desde la posición 0 
@@ -18,7 +19,7 @@ def get_next_link(page):
     #y 0 en la posición
     if start_link == -1:
         url = None
-        endpos = 0
+        end_quote = 0
     #si lo encuentra, entonces me busca el enlace entre la etiqueta
     #<a> HTML, cambia el parámatero
     else:
@@ -27,15 +28,21 @@ def get_next_link(page):
         url = page[start_quote + 1:end_quote]
     return url, end_quote
 
-list_links = []
 
 def print_all_links(page):
     while True:
         url, endpos = get_next_link(page)
         if url:
-            list_links.append(url)
-            page = page[endpos:]
+            if url == '#':
+                page = page[endpos+1:]
+                continue
+            else:
+                list_links.append(url)
+                page = page[endpos:]
         else:
             break
 
+
+page = gethtml(url)
 print_all_links(page)
+print(list_links)
