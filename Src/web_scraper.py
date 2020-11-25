@@ -1,5 +1,4 @@
 def css_class_get_content(page, string_key_class):
-    pass
     #PRUEBA
     #this variable stores the html open tag
     string_html_open_tag = page.rfind("<",0,string_key_class - 1)
@@ -11,6 +10,7 @@ def css_class_get_content(page, string_key_class):
     string_content_key_end = page.find('</'+string_html_tag, string_content_key_start + 1)
     #this variable stores the content of the html tag
     string_content_key = page[string_content_key_start+1:string_content_key_end]
+    
     #PRUEBA
     return string_content_key, #string_
     
@@ -18,15 +18,18 @@ def css_class_get_content(page, string_key_class):
 def css_class_finder(page,key):
     #this search the class that we want and stores it in "string_key_class" 
     string_key_class = page.find('class="' + key + '"')
-    #if he dont find it then returns None 
-    if string_key_class == -1:
-        string_content_key = None
-        
-    #if he finds it then...
-    else:
-        css_class_get_content(page, string_key_class)
-        """
-        start_quote = page.find('"', start_link)
-        end_quote = page.find('"', start_quote + 1)
-        string_class = page[start_quote + 1: end_quote]
-        """
+    while True:
+        #if he dont find it then returns None and breaks the cycle
+        if string_key_class == -1:
+            string_content_key = None
+            break
+        #if he finds it then find all the occurence of the page
+        else:
+            string_class_content = css_class_get_content(page, string_key_class)
+            page = page[string_class_content+1:]
+            """
+            start_quote = page.find('"', start_link)
+            end_quote = page.find('"', start_quote + 1)
+            string_class = page[start_quote + 1: end_quote]
+            """
+            continue
