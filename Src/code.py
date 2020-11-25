@@ -16,7 +16,7 @@ list_class_html = [
 dict_class_html = dict.fromkeys(list_class_html, [])
 
 #Here we take all th links from the root level "index.html"
-page = gethtml(string_url)
+page = web_crawler.gethtml(string_url)
 web_crawler.print_all_links(page)
 print(list_links)
 
@@ -25,7 +25,7 @@ web_crawler.get_all_pages(list_links)
 print(list_links)
 
 for url in list_links:
-    page = gethtml(url)
+    page = web_crawler.gethtml(url)
     for class_html in list_class_html:
         string_content = web_scraper.css_class_finder(page,class_html)
         dict_class_html[class_html].append(string_content)
