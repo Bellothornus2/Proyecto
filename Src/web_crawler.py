@@ -1,3 +1,15 @@
+#This function is to download the HTMl in "UTF-8" Codification from a given URI
+def gethtml(string_url,webpage="http://localhost:8000/html/"):
+    try:
+        request = urllib.request.urlopen(webpage + string_url)
+    except:
+        print(webpage + string_url)
+    #si tiene el charset puesto:
+    #html = request.read().decode(request.headers.get_content_charset())
+    #si no:
+    html = request.read().decode('utf-8')
+    return html
+
 #This function gets the next link from a given position from the html
 def get_next_link(page):
     #encuentra el primer enlace desde la posición 0 
@@ -17,7 +29,7 @@ def get_next_link(page):
     return string_url, end_quote
 
 #This function Stores all the Links contained in a single HTML File (in this case HTML page)
-def print_all_links(page):
+def print_all_links(page, list_links):
     while True:
         string_url, endpos = get_next_link(page)
         if string_url:
