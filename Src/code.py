@@ -1,6 +1,6 @@
 #Here we import the library to download the HTMl
 import urllib.request
-
+from . import web_crawler, web_scraper
 #we initialize the empty list "list_links" to store all the links here
 #and the varaible string "string_url" to store the root of the content
 #we initialize the dictionary who contains the ids of the elements that we want to store 
@@ -15,105 +15,18 @@ list_class_html = [
 ]
 dict_class_html = dict.fromkeys(list_class_html, [])
 
-#This function is to download the HTMl in "UTF-8" Codification from a given URI
-def gethtml(string_url,webpage="http://localhost:8000/html/"):
-    try:
-        request = urllib.request.urlopen(webpage + string_url)
-    except:
-        print(webpage + string_url)
-    #si tiene el charset puesto:
-    #html = request.read().decode(request.headers.get_content_charset())
-    #si no:
-    html = request.read().decode('utf-8')
-    return html
-
-
-
-def css_class_get_content(page, string_key_class):
-    pass
-    #PRUEBA
-    #this variable stores the html open tag
-    string_html_open_tag = page.rfind("<",0,string_key_class - 1)
-    #this variable stores the html tag
-    string_html_tag = page[string_html_open_tag:string_key_class]
-    #this variable stores the start index of the content
-    string_content_key_start = page.find('>', string_key_class) 
-    #this variable stores the end index of the content
-    string_content_key_end = page.find('</'+string_html_tag, string_content_key_start + 1)
-    #this variable stores the content of the html tag
-    string_content_key = page[string_content_key_start+1:string_content_key_end]
-    #PRUEBA
-    return string_content_key, string_
-
-#This function gets the next id from the page at given position 
-def css_class_finder(page,key):
-    #this search the class that we want and stores it in "string_key_class" 
-    string_key_class = page.find('class="' + key + '"')
-    #if he dont find it then returns None 
-    if string_key_class == -1:
-        string_content_key = None
-        
-    #if he finds it then...
-    else:
-        css_class_get_content(page, string_key_class)
-        """
-        start_quote = page.find('"', start_link)
-        end_quote = page.find('"', start_quote + 1)
-        string_class = page[start_quote + 1: end_quote]
-        """
-
-#This function gets the next link from a given position from the html
-def get_next_link(page):
-    #encuentra el primer enlace desde la posición 0 
-    #del parámetro "page"
-    start_link = page.find('<a href=')
-    #si no lo encuetra me asigna nada en la URL
-    #y 0 en la posición
-    if start_link == -1:
-        string_url= None
-        end_quote = 0
-    #si lo encuentra, entonces me busca el enlace entre la etiqueta
-    #<a> HTML, cambia el parámatero
-    else:
-        start_quote = page.find('"', start_link)
-        end_quote = page.find('"', start_quote + 1)
-        string_url= page[start_quote + 1:end_quote]
-    return string_url, end_quote
-
-#This function Stores all the Links contained in a single HTML File (in this case HTML page)
-def print_all_links(page):
-    while True:
-        string_url, endpos = get_next_link(page)
-        if string_url:
-            if string_url == '#' or string_url in list_links or ".." in string_url:
-                page = page[endpos+1:]
-                continue
-            else:
-                list_links.append(string_url)
-                page = page[endpos:]
-        else:
-            break
-
-#This function Stores all the links from the webpage visiting all the links recursively
-#discriminating the duplicates and those containing ".." in it
-def get_all_pages(list_links):
-    for string_url in list_links:
-        page = gethtml(string_url)
-        print_all_links(page)
-        list_links = list(set(list_links))
-
 #Here we take all th links from the root level "index.html"
-page = gethtml(string_url)
-print_all_links(page)
+page = web_crawler.gethtml(string_url)
+web_crawler.print_all_links(page)
 print(list_links)
 
 #Then here we take all the links from all the urls from the entire webpage recursively.
-get_all_pages(list_links)
+web_crawler.get_all_pages(list_links)
 print(list_links)
 
 for url in list_links:
-    page = gethtml(url)
+    page = web_crawler.gethtml(url)
     for class_html in list_class_html:
-        string_content = css_class_finder(page,class_html)
+        string_content = web_scraper.css_class_finder(page,class_html)
         dict_class_html[class_html].append(string_content)
-    css_class_finder
+    web_scraper.css_class_finder
