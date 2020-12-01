@@ -30,10 +30,24 @@ def get_next_link(page):
         string_url= page[start_quote + 1:end_quote]
     return string_url, end_quote
 
+#This function retrieves the parent direcotry of a link, if any
+def retrieve_directory_if_any(link):
+    link_splited = link.split("/")
+    if link_splited > 1:
+        link_splited.remove(link_splited[-1])
+        directory_parent = "/".join(link_splited)+"/"
+    else:
+        directory_parent = ""
+    return directory_parent
+
 #This function Stores all the Links contained in a single HTML File (in this case HTML page)
 def get_all_links(page, list_links):
     while True:
         string_url, endpos = get_next_link(page)
+        array_url_splited = string_url.split("/")
+        if array_url_splited > 1:
+            array_url_splited.remove(array_url_splited[-1])
+            string_directory_parent = "/".join(array_url_splited)
         if string_url:
             if string_url == '#' or string_url in list_links or ".." in string_url:
                 page = page[endpos+1:]
@@ -44,6 +58,19 @@ def get_all_links(page, list_links):
         else:
             break
 
+def get_all_links(page, list_links):
+    while True:
+        string_url, endpos = get_next_link(page)
+        if string_url:
+            string_parent_diectory = retrieve_directory_if_any(string_url)
+            if string_url == '#' or string_parent_diectory + string_url in list_links or ".." in string_url:
+                page = page[endpos+1:]
+                continue
+            else:
+                list_links.append(string_parent_diectory + string_url)
+                page = page[endpos:]
+        else:
+            break
 #This function Stores all the links from the webpage visiting all the links recursively
 #discriminating the duplicates and those containing ".." in it
 def get_all_pages(list_links):
