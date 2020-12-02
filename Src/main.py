@@ -14,6 +14,7 @@ list_class_html = [
 ]
 dict_class_html = dict.fromkeys(list_class_html, [])
 
+#NOTE: we saw that this code is redundant and we have to refactor it
 #Here we take all th links from the root level "index.html"
 page = get_html(string_url)
 get_all_links(page, list_links)
