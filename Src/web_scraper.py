@@ -1,3 +1,4 @@
+#TODO: We have to complete this NOW!
 def css_class_get_content(page, string_key_class):
     #PRUEBA
     #this variable stores the html open tag
