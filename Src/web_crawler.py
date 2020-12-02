@@ -46,24 +46,6 @@ def retrieve_directory_if_any(link, list_links):
         link_without_parent = link
     return directory_parent, link_without_parent
 
-"""
-def get_all_links(page, list_links):
-    while True:
-        string_url, endpos = get_next_link(page)
-        array_url_splited = string_url.split("/")
-        if array_url_splited > 1:
-            array_url_splited.remove(array_url_splited[-1])
-            string_directory_parent = "/".join(array_url_splited)
-        if string_url:
-            if string_url == '#' or string_url in list_links or ".." in string_url:
-                page = page[endpos+1:]
-                continue
-            else:
-                list_links.append(string_url)
-                page = page[endpos:]
-        else:
-            break
-"""
 #This function Stores all the Links contained in a single HTML File (in this case HTML page)
 def get_all_links(page, list_links):
     assert page != "" and list_links != [] or list_links == []
