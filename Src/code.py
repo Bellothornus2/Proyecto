@@ -1,5 +1,5 @@
-from web_crawler import get_all_links, gethtml, get_all_pages
-from web_scraper import css_class_finder
+from .web_crawler import get_all_links, gethtml, get_all_pages
+from .web_scraper import css_class_finder
 #we initialize the empty list "list_links" to store all the links here
 #and the varaible string "string_url" to store the root of the content
 #we initialize the dictionary who contains the ids of the elements that we want to store 
