@@ -1,2 +1,4 @@
+#for making tests to the code
 pytest == 6.1.1
+#the python package manager that we use in our project
 pip == 20.2.4
