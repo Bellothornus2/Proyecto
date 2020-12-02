@@ -2,7 +2,7 @@
 #TODO: We see that we have urllib3 and urllib
 import urllib.request
 #This function is to download the HTMl in "UTF-8" Codification from a given URI
-def gethtml(string_url,webpage="http://localhost:8000/html/"):
+def get_html(string_url,webpage="http://localhost:8000/html/"):
     assert string_url != ""
     try:
         request = urllib.request.urlopen(webpage + string_url)
@@ -66,6 +66,6 @@ def get_all_links(page, list_links):
 def get_all_pages(list_links):
     assert list_links != []
     for string_url in list_links:
-        page = gethtml(string_url)
+        page = get_html(string_url)
         get_all_links(page, list_links)
         #list_links = list(set(list_links))

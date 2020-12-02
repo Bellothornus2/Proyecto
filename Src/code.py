@@ -1,4 +1,4 @@
-from .web_crawler import get_all_links, gethtml, get_all_pages
+from .web_crawler import get_all_links, get_html, get_all_pages
 from .web_scraper import css_class_finder
 #we initialize the empty list "list_links" to store all the links here
 #and the varaible string "string_url" to store the root of the content
@@ -15,7 +15,7 @@ list_class_html = [
 dict_class_html = dict.fromkeys(list_class_html, [])
 
 #Here we take all th links from the root level "index.html"
-page = gethtml(string_url)
+page = get_html(string_url)
 get_all_links(page, list_links)
 print(list_links)
 
@@ -25,7 +25,7 @@ print(list_links)
 
 #Here
 for url in list_links:
-    page = gethtml(url)
+    page = get_html(url)
     for class_html in list_class_html:
         string_content = css_class_finder(page,class_html)
         dict_class_html[class_html].append(string_content)

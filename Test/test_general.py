@@ -1,4 +1,4 @@
 from src.code import web_crawler
 
-def test_gethtml():
-    assert web_crawler.gethtml("index.html") != "" or web_crawler.gethtml("index.html") != ValueError
+def test_get_html():
+    assert web_crawler.get_html("index.html") != "" or web_crawler.get_html("index.html") != ValueError
