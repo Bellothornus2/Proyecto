@@ -1,8 +1,7 @@
 #Here we import the library to download the HTMl
-#TODO: We see that we have urllib3 and urllib
 import urllib.request
 #This function is to download the HTMl in "UTF-8" Codification from a given URI
-def get_html(string_url,webpage="http://localhost:8000/html/"):
+def get_html(string_url="index.html",webpage="http://localhost:8000/html/"):
     assert string_url != ""
     try:
         request = urllib.request.urlopen(webpage + string_url)
@@ -47,6 +46,7 @@ def retrieve_directory_if_any(link, list_links):
     return directory_parent, link_without_parent
 
 #This function Stores all the Links contained in a single HTML File (in this case HTML page)
+#NOTE: we have to refactor this, this if has to be simpler
 def get_all_links(page, list_links):
     assert page != "" and list_links != [] or list_links == []
     while True:
@@ -63,9 +63,9 @@ def get_all_links(page, list_links):
             break
 #This function Stores all the links from the webpage visiting all the links recursively
 #discriminating the duplicates and those containing ".." in it
-def get_all_pages(list_links):
-    assert list_links != []
+def get_all_pages(list_links=[],webpage="http://localhost:8000/html/",url="index.html"):
+    if list_links == []:
+        list_links.append(url)
     for string_url in list_links:
-        page = get_html(string_url)
-        get_all_links(page, list_links)
+        get_all_links(get_html(string_url,webpage), list_links)
         #list_links = list(set(list_links))
