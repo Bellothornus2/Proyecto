@@ -1,7 +1,4 @@
 #TODO: We have to complete this NOW!
-#This function appends the values of the css_class_finder to the correspondent dict_class_html
-def css_append_content(dict_class_html, string_class_content, key):
-    dict_class_html[key].append(string_class_content)
 
 #This function gets the content inside the html tag that we specfied earlier
 def css_class_get_content(page, string_key_class):
@@ -22,7 +19,6 @@ def css_class_get_content(page, string_key_class):
     
 #This function gets the next id from the page at given position 
 def css_class_finder(page,key,dict_class_html):
-    list_contents = []
     #this search the class that we want and stores it in "string_key_class" 
     while True:
         string_key_class = page.find('class="' + key + '"')
@@ -32,7 +28,8 @@ def css_class_finder(page,key,dict_class_html):
         #if he finds it then find all the occurence of the page
         else:
             string_class_content, page = css_class_get_content(page, string_key_class)
-            dict_class_html = css_append_content(dict_class_html, string_class_content, key)
-            #list_contents.append(string_class_content)
+            dict_class_html[key].append(string_class_content)
             continue
     return dict_class_html
+
+
