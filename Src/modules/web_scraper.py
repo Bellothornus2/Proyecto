@@ -1,5 +1,4 @@
-#TODO: We have to complete this NOW!
-
+from .web_crawler import get_html
 #This function gets the content inside the html tag that we specfied earlier
 def css_class_get_content(page, string_key_class):
     #PRUEBA
@@ -30,6 +29,15 @@ def css_class_finder(page,key,dict_class_html):
             string_class_content, page = css_class_get_content(page, string_key_class)
             dict_class_html[key].append(string_class_content)
             continue
+    return dict_class_html
+
+
+#Here we take all the content of the pages
+def get_all_content(list_links, list_class_html, dict_class_html):
+    for url in list_links:
+        page = get_html(url)
+        for class_html in list_class_html:
+            dict_class_html = css_class_finder(page,class_html, dict_class_html)
     return dict_class_html
 
 
