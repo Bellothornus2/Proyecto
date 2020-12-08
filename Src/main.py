@@ -1,4 +1,4 @@
-from modules.json.transform_json import transorm_json_data
+from modules.json.transform_json import transform_json_data
 from modules.web_crawler.get_all_pages import get_all_pages
 from modules.web_scraper.get_all_content import get_all_content
 from modules.json.save_json import save_json_file
@@ -32,7 +32,7 @@ save_json_file(get_all_content(get_all_pages(webpage=webpage),list_class_html,di
 
 #this function stores all the content of the pages in a json file per pack
 dict_class_html_experimental = {}
-dict_class_html_experimental = transorm_json_data(dict_class_html_experimental, dict_class_html)
+dict_class_html_experimental = transform_json_data(dict_class_html_experimental, dict_class_html, list_class_html)
 save_json_file(dict_class_html_experimental)
 
 
