@@ -4,3 +4,7 @@ pytest == 6.1.1
 pip == 20.2.4
 #the GUI library for making Interactive Graphical apps
 pysimplegui == 4.32.1
+#To store data in MongoDBAtlas
+pymongo==3.11.2
+#To use pymongo well
+dnspython==2.0.0
