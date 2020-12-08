@@ -32,7 +32,7 @@ def show_retrieved_data(dict_class_html, list_class_html):
             #Here we are connecting to the database
             db = client.amenities
             #Here we are connecting to the collection
-            collection = db.packs
+            collection = db.packs2
             #here we are inserting the retrieved data
             insertado = collection.insert_one(dict_class_html_row)
             client.close()
