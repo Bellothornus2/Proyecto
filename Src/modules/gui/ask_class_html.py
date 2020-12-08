@@ -28,7 +28,10 @@ def ask_class_html():
                 window["-OUTPUT-"].update("Has introducido esto:" + str(list_class))
             except ValueError as e:
                 window["-POPERROR-"].update("Error: " + e)
-        elif event == psg.WIN_CLOSED or event == "Parar de introducir datos":
+        elif event == "Parar de introducir datos":
+            break
+        elif event == psg.WIN_CLOSED:
+            list_class=0
             break
     window.close()
     return list_class
