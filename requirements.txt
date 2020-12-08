@@ -2,3 +2,5 @@
 pytest == 6.1.1
 #the python package manager that we use in our project
 pip == 20.2.4
+#the GUI library for making Interactive Graphical apps
+pysimplegui == 4.32.1
