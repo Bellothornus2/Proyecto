@@ -1,4 +1,3 @@
-import PySimpleGUI as psg
 from modules.gui.ask_web_page import ask_web_page
 from modules.gui.ask_class_html import ask_class_html
 from modules.gui.ask_index_html import ask_index_html
