@@ -1,4 +1,4 @@
-from ..web_crawler.get_html import get_html
+from ..get_html import get_html
 from .css_class_finder import css_class_finder
 #Here we take all the content of the pages
 def get_all_content(list_links, list_class_html, dict_class_html):
