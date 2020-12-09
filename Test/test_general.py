@@ -35,6 +35,13 @@ def test_css_class_finder_is_dict():
 
 @pytest.mark.css_class_finder_is_this
 def test_css_class_finder_is_this():
+    dict_class_html = {
+    "PricePack":[],
+    "NamePack":[],
+    "ContentPack":[],
+    "HasCupon":[],
+    "HasParking":[]
+}
     assert css_class_finder(get_html(string_url="products.html"), "NamePack", dict_class_html) == {
     "PricePack":[],
     "NamePack":["Free Pack", "Tier 1 Pack", "Tier 2 Pack", "Tier 3 Pack", "Tier 4 Pack", "Tier 5 Pack"],
