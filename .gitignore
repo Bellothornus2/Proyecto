@@ -8,3 +8,4 @@ proyecto.code-workspace
 .vscode
 .prueba.py
 prueba.py
+.pytest_cache
