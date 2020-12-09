@@ -47,6 +47,7 @@ def test_css_class_finder_is_this():
     "NamePack":["Free Pack", "Tier 1 Pack", "Tier 2 Pack", "Tier 3 Pack", "Tier 4 Pack", "Tier 5 Pack"],
     "ContentPack":[],
     "HasCupon":[],
+    "HasCupon":[],
     "HasParking":[]
 }
 
