@@ -4,7 +4,11 @@ from modules.gui.ask_index_html import ask_index_html
 from modules.gui.show_retrieved_data import show_retrieved_data
 from modules.web_scraper.get_all_content import get_all_content
 
-
+#necesitamos una ventana que nos diga el crawler
+#y otra ventana para el scraper que queramos 
+#además de poder volver hacia atrás...
+#además de guardar el json en archivo, no cerrar la ventana si no avisar de que se ha hecho bien
+#y viceversa para guardarlo en el atlas
 web_page = ask_web_page()
 print(web_page)
 
