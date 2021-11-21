@@ -9,3 +9,4 @@ proyecto.code-workspace
 .prueba.py
 prueba.py
 .pytest_cache
+get-pip.py
