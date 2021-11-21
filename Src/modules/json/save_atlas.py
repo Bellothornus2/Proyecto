@@ -10,6 +10,4 @@ def save_atlas(dict_class_html_row):
     #print(dict_class_html_row)
     #here we are inserting the retrieved data
     for key,value in dict_class_html_row.items():
-        #print("{%s:%s}" % (key,value))
-        
         collection.insert_one(value)
