@@ -1,0 +1,42 @@
+{
+    "ContentPack": [
+        "This pack includes a bag full of sweets",
+        "this low-priced pack includes a bag of sweets plus an organized hotel welcome ",
+        "This pack comes with the reglamentari bag of sweets, the organized hotel welcome and a parking area",
+        "In this pack you will find an exquisite selection of sweets, a welcome, a parking area and an exclusive coupon with 5% of discount in the next in the next purchase",
+        "With this pack, you have a visit to a sweet shop and a coupon in said store with a value of up to 20\u20ac, a welcome from the hotel, a parking area and acces VIP to a local disco",
+        "In the Tier 5 Pack you will find the visit to a sweet shop with a coupon valuated up to 40\u20ac, a welcome from the hotel, a parking area, a VIP acces in the local disco and a coupon for a local restaurant with a value up to 35% "
+    ],
+    "HasCupon": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true
+    ],
+    "HasParking": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        true
+    ],
+    "NamePack": [
+        "Free Pack",
+        "Tier 1 Pack",
+        "Tier 2 Pack",
+        "Tier 3 Pack",
+        "Tier 4 Pack",
+        "Tier 5 Pack"
+    ],
+    "PricePack": [
+        "Free",
+        "5\u20ac",
+        "10\u20ac",
+        "20\u20ac",
+        "50\u20ac",
+        "70\u20ac"
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "0": {
+        "ContentPack": "This pack includes a bag full of sweets",
+        "HasCupon": false,
+        "HasParking": false,
+        "NamePack": "Free Pack",
+        "PricePack": "Free"
+    },
+    "1": {
+        "ContentPack": "this low-priced pack includes a bag of sweets plus an organized hotel welcome ",
+        "HasCupon": false,
+        "HasParking": false,
+        "NamePack": "Tier 1 Pack",
+        "PricePack": "5\u20ac"
+    },
+    "2": {
+        "ContentPack": "This pack comes with the reglamentari bag of sweets, the organized hotel welcome and a parking area",
+        "HasCupon": false,
+        "HasParking": true,
+        "NamePack": "Tier 2 Pack",
+        "PricePack": "10\u20ac"
+    },
+    "3": {
+        "ContentPack": "In this pack you will find an exquisite selection of sweets, a welcome, a parking area and an exclusive coupon with 5% of discount in the next in the next purchase",
+        "HasCupon": true,
+        "HasParking": true,
+        "NamePack": "Tier 3 Pack",
+        "PricePack": "20\u20ac"
+    },
+    "4": {
+        "ContentPack": "With this pack, you have a visit to a sweet shop and a coupon in said store with a value of up to 20\u20ac, a welcome from the hotel, a parking area and acces VIP to a local disco",
+        "HasCupon": true,
+        "HasParking": true,
+        "NamePack": "Tier 4 Pack",
+        "PricePack": "50\u20ac"
+    },
+    "5": {
+        "ContentPack": "In the Tier 5 Pack you will find the visit to a sweet shop with a coupon valuated up to 40\u20ac, a welcome from the hotel, a parking area, a VIP acces in the local disco and a coupon for a local restaurant with a value up to 35% ",
+        "HasCupon": true,
+        "HasParking": true,
+        "NamePack": "Tier 5 Pack",
+        "PricePack": "70\u20ac"
+    }
+}
